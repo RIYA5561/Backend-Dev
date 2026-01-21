@@ -8,7 +8,7 @@ const http = require("http");
  })
 
 
- const server=http.createServer((req,res)=>{
+ const server1=http.createServer((req,res)=>{
 
    const user={
        id:1,
@@ -21,14 +21,14 @@ const http = require("http");
 res.end(JSON.stringify(user));
  });
 
- server.listen(8000, ()=>{
+ server12.listen(8000, ()=>{
      console.log("server is running on port 8000");
  })
 
 
 
 
-const server=http.createServer((req,res)=>{
+const server2=http.createServer((req,res)=>{
     switch(req.url){
          case "/":
              res.writeHead(200,{"content-Type": "text/html"});
@@ -47,13 +47,13 @@ const server=http.createServer((req,res)=>{
 
  })
 
-     server.listen(8000, ()=>{
+     server2.listen(8000, ()=>{
      console.log("server is running on port 8000");
      })
 
 
 
- const server=http.createServer((req,res)=>{
+ const server3=http.createServer((req,res)=>{
      switch(req.url){
          case "/":
              res.writeHead(200,{"content-Type": "text/html"});
@@ -72,6 +72,6 @@ const server=http.createServer((req,res)=>{
 
  })
 
-     server.listen(8000, ()=>{
+     server3.listen(8000, ()=>{
      console.log("server is running on port 8000");
      })
