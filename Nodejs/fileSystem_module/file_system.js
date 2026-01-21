@@ -32,15 +32,49 @@
 
 
 const fs = require("fs");
-fs.copyFileSync("test.txt","dest.txt")
-fs.copyFile("test.txt","dest_async.txt",(err)=>{
+// fs.copyFileSync("test.txt","dest.txt")
+// fs.copyFile("test.txt","dest_async.txt",(err)=>{
+//     if(err){
+//         console.log("error in copying file", err)
+//     }else{
+//         console.log("file copied successfully")
+//     }
+// })
+
+// 5. creating new directory
+fs.mkdir("newDirectory",(err)=>{
+    if(err) return;
+    console.log("directory created successfully")
+})
+fs.mkdir("folders/folder1/folder2", { recursive:true},(err)=>{
     if(err){
-        console.log("error in copying file", err)
+        console.log("error in creating directory", err)
     }else{
-        console.log("file copied successfully")
+        console.log("directory created successfully")
     }
 })
+   fs.readdir("newDirectory",(err,files)=>{
+    if(err){
+        console.log("error in reading directory", err)
+    }else{
+        console.log("directory read successfully", files)
+    }})
     
+    fs.rmdir("newDirectory",(err)=>{  // it is used to dlt empty directory
+        if(err){
+            console.log(err);return
+
+        }
+        else{
+            console.log("directory removed successfully")
+        }})
+
+        fs.rm("newdirectory/index.js",(err)=>{ // rm is used to dlt the content of directory
+            if(err){
+                console.log("error in removing directory", err)
+            }else{
+                console.log("directory removed successfully")
+            }})
 
 
 
