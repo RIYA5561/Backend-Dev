@@ -1,0 +1,199 @@
+db.students.insertMany([
+  {
+    name: "Rahul",
+    age: 20,
+    course: "BCA",
+    city: "Delhi",
+    feesPaid: true
+  },
+  {
+    name: "Aman",
+    age: 22,
+    course: "BTech",
+    city: "Noida",
+    feesPaid: false
+  },
+  {
+    name: "Rahul",
+    age: 21,
+    course: "BBA",
+    city: "Lucknow",
+    feesPaid: true
+  },
+  {
+    name: "Priya",
+    age: 19,
+    course: "BCom",
+    city: "Kanpur",
+    feesPaid: false
+  },
+  {
+    name: "Neha",
+    age: 23,
+    course: "MCA",
+    city: "Ghaziabad",
+    feesPaid: true
+  }
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('69ba763e8fa74020363730f0'),
+    '1': ObjectId('69ba763e8fa74020363730f1'),
+    '2': ObjectId('69ba763e8fa74020363730f2'),
+    '3': ObjectId('69ba763e8fa74020363730f3'),
+    '4': ObjectId('69ba763f8fa74020363730f4')
+  }
+}
+db.students.find()
+{
+  _id: ObjectId('69ba763e8fa74020363730f0'),
+  name: 'Rahul',
+  age: 20,
+  course: 'BCA',
+  city: 'Delhi',
+  feesPaid: true
+}
+{
+  _id: ObjectId('69ba763e8fa74020363730f1'),
+  name: 'Aman',
+  age: 22,
+  course: 'BTech',
+  city: 'Noida',
+  feesPaid: false
+}
+{
+  _id: ObjectId('69ba763e8fa74020363730f2'),
+  name: 'Rahul',
+  age: 21,
+  course: 'BBA',
+  city: 'Lucknow',
+  feesPaid: true
+}
+{
+  _id: ObjectId('69ba763e8fa74020363730f3'),
+  name: 'Priya',
+  age: 19,
+  course: 'BCom',
+  city: 'Kanpur',
+  feesPaid: false
+}
+{
+  _id: ObjectId('69ba763f8fa74020363730f4'),
+  name: 'Neha',
+  age: 23,
+  course: 'MCA',
+  city: 'Ghaziabad',
+  feesPaid: true
+}
+db.students.find{{course:"BCA"}}
+SyntaxError: Missing semicolon. (1:16)
+
+> 1 | db.students.find{{course:"BCA"}}
+    |                 ^
+db.students.find({course:"BCA"})
+{
+  _id: ObjectId('69ba763e8fa74020363730f0'),
+  name: 'Rahul',
+  age: 20,
+  course: 'BCA',
+  city: 'Delhi',
+  feesPaid: true
+}
+db.students.find({age:{$gt:20}})
+{
+  _id: ObjectId('69ba763e8fa74020363730f1'),
+  name: 'Aman',
+  age: 22,
+  course: 'BTech',
+  city: 'Noida',
+  feesPaid: false
+}
+{
+  _id: ObjectId('69ba763e8fa74020363730f2'),
+  name: 'Rahul',
+  age: 21,
+  course: 'BBA',
+  city: 'Lucknow',
+  feesPaid: true
+}
+{
+  _id: ObjectId('69ba763f8fa74020363730f4'),
+  name: 'Neha',
+  age: 23,
+  course: 'MCA',
+  city: 'Ghaziabad',
+  feesPaid: true
+}
+db.students.find({},{name:1,course:1,_id:0})
+{
+  name: 'Rahul',
+  course: 'BCA'
+}
+{
+  name: 'Aman',
+  course: 'BTech'
+}
+{
+  name: 'Rahul',
+  course: 'BBA'
+}
+{
+  name: 'Priya',
+  course: 'BCom'
+}
+{
+  name: 'Neha',
+  course: 'MCA'
+}
+b.students.updateOne(
+  { name: "Rahul" },
+  { $set: { city: "Mumbai" } }
+)
+ReferenceError: b is not defined
+db.students.updateOne(
+  { name: "Rahul" },
+  { $set: { city: "Mumbai" } }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.students.updateMany(
+  { course: "BCA" },
+  { $set: { course: "MCA" } }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.students.updateMany(
+  { age: { $gt: 22 } },
+  { $set: { feesPaid: true } }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+db.students.deleteMany({ feesPaid: false })
+{
+  acknowledged: true,
+  deletedCount: 2
+}
+db.students.deleteMany({ age: { $lt: 20 } })
+{
+  acknowledged: true,
+  deletedCount: 0
+}
+studentsDB
+
+
